@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/* Design tokens — neutral + primary + semantic status (aligned with modern SaaS: Linear / Notion–like) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #18181b;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f4f4f5;
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --muted: #71717a;
+  --muted-foreground: #52525b;
+  /* Primary — indigo */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-foreground: #ffffff;
+  --primary-subtle: #eef2ff;
+  --primary-ring: rgba(79, 70, 229, 0.25);
+  /* Focus ring */
+  --ring: #6366f1;
+  /* Kanban column */
+  --column-bg: #f4f4f5;
+  --column-header: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --surface: #18181b;
+    --surface-raised: #1c1c1f;
+    --surface-muted: #27272a;
+    --border: #27272a;
+    --border-strong: #3f3f46;
+    --muted: #a1a1aa;
+    --muted-foreground: #d4d4d8;
+    --primary: #818cf8;
+    --primary-hover: #6366f1;
+    --primary-foreground: #18181b;
+    --primary-subtle: #312e81;
+    --primary-ring: rgba(129, 140, 248, 0.35);
+    --ring: #818cf8;
+    --column-bg: #18181b;
+    --column-header: #1c1c1f;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-subtle: var(--primary-subtle);
+  --color-column-bg: var(--column-bg);
+  --color-column-header: var(--column-header);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Typography scale helpers */
+@layer utilities {
+  .text-heading-page {
+    @apply text-2xl font-semibold tracking-tight text-foreground;
+  }
+  .text-heading-section {
+    @apply text-base font-semibold tracking-tight text-foreground;
+  }
+  .text-label {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+  .text-body {
+    @apply text-sm leading-relaxed text-muted-foreground;
+  }
 }
