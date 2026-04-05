@@ -98,13 +98,13 @@ Each card includes:
 
 ## 🛠️ Tech Stack
 
-| Layer      | Technology           |
-| ---------- | -------------------- |
-| Framework  | Next.js (App Router) |
-| Language   | TypeScript           |
-| UI Library | React                |
-| Styling    | Tailwind CSS         |
-| Fonts      | Geist Sans / Mono    |
+| Layer     | Technology           |
+| --------- | -------------------- |
+| Framework | Next.js (App Router) |
+| Language  | TypeScript           |
+| UI        | React                |
+| Styling   | Tailwind CSS         |
+| Fonts     | Geist Sans / Mono    |
 
 ---
 
@@ -134,13 +134,46 @@ src/
 
 ---
 
+## 🖥️ Main Screens and Routes
+
+| Route         | Purpose                                                         |
+| ------------- | --------------------------------------------------------------- |
+| `/`           | Candidate Pipeline: job overview, filters, Kanban board, drawer |
+| `/jobs`       | Placeholder page                                                |
+| `/candidates` | Placeholder page                                                |
+| `/settings`   | Placeholder page                                                |
+
+👉 The home page reads `searchParams` for `demo=empty` to enable the empty pipeline demo.
+
+---
+
+## 📊 Data Model and Mock Data
+
+* `src/types/pipeline.ts` → Candidate (stage, skills, interviewStatus, notes, etc.), JobOverview, PIPELINE_STAGES
+* `src/types/filters.ts` → StageFilter, ExperienceFilter, ScoreFilter
+* `src/data/mock-candidates.ts` → list of candidates distributed across stages
+* `src/data/mock-job.ts` → active job overview data
+
+👉 Filtering logic is implemented in:
+
+```bash
+src/lib/filter-candidates.ts
+```
+
+👉 Consumed by:
+
+```bash
+CandidatePipelineDashboard
+```
+
+> ⚠️ Note: This project uses static mock data for demonstration. In a real-world scenario, this would be replaced with API-based data fetching.
+
+---
+
 ## 🚀 Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Run locally
 npm run dev
 ```
 
@@ -185,30 +218,30 @@ Open 👉 http://localhost:3000
 ## 📦 Scripts
 
 ```bash
-npm run dev     # Start development server
-npm run build   # Build for production
-npm start       # Run production server
-npm run lint    # Lint code
+npm run dev
+npm run build
+npm start
+npm run lint
 ```
 
 ---
 
 ## 🔮 Future Improvements
 
-* Drag & drop Kanban (like Trello)
+* Drag & drop Kanban
 * Backend/API integration
-* Authentication system
+* Authentication
 * Real-time updates
-* Global search functionality
+* Global search
 
 ---
 
 ## 🧠 Approach
 
-* Built with **component-first architecture**
-* Focused on **scalability and reusability**
-* Designed for **real-world recruiter workflows**
-* Prioritized **clean UI and usability**
+* Component-based architecture
+* Focus on scalability & reusability
+* Designed for real-world recruiter workflows
+* Emphasis on UX clarity and clean UI
 
 ---
 
@@ -220,6 +253,4 @@ Private / Assignment use
 
 ## 🙌 Final Note
 
-This project focuses on **combining strong UI/UX with clean engineering practices**, simulating a real-world SaaS product environment.
-
----
+This project demonstrates a **production-level frontend architecture with strong UX focus**, simulating real SaaS hiring tools.
