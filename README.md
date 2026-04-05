@@ -110,29 +110,6 @@ Each card includes:
 
 ## 📁 Project Structure
 
-```bash
-src/
-├── app/
-│   ├── (dashboard)/
-│   │   ├── page.tsx
-│   │   ├── layout.tsx
-│   │   ├── jobs/
-│   │   ├── candidates/
-│   │   └── settings/
-│   ├── layout.tsx
-│   └── globals.css
-│
-├── components/
-│   ├── layout/
-│   ├── pipeline/
-│   └── ui/
-│
-├── data/
-├── lib/
-├── types/
-```
-
----
 
 ## 🖥️ Main Screens and Routes
 
